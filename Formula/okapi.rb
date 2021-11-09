@@ -4,10 +4,10 @@ class Okapi < Formula
   url "https://github.com/trinsic-id/okapi/releases/download/v1.1.0/okapi-1.1.0.tar.gz"
   sha256 "3fcdfa1f513b934981812c917b2053dbb4acca955f98e94ee717855e3300523d"
   license "Apache-2.0"
-  
+
   bottle do
-    rebuild 1
-    sha256 cellar: :any, monterey: "f8aa5d36b3e45f5396dd8447f8d016230f02fb7bfa21ea9bcc37bdfbef655508"
+    root_url "https://github.com/trinsic-id/homebrew-tap/releases/download/okapi-1.1.0"
+    sha256 cellar: :any_skip_relocation, monterey: "f8aa5d36b3e45f5396dd8447f8d016230f02fb7bfa21ea9bcc37bdfbef655508"
   end
 
   depends_on "rust"
