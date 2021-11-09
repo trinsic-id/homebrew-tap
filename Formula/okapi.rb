@@ -1,5 +1,5 @@
 class Okapi < Formula
-  desc "Collection of tools that support workflows for authentic data and identity management."
+  desc "Collection of tools that support workflows for authentic data and identity management"
   homepage "https://github.com/trinsic-id/okapi/"
   url "https://github.com/trinsic-id/okapi/releases/download/v1.1.0/okapi-1.1.0.tar.gz"
   sha256 "3fcdfa1f513b934981812c917b2053dbb4acca955f98e94ee717855e3300523d"
