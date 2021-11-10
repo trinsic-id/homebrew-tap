@@ -1,21 +1,18 @@
 class Okapi < Formula
-  desc "Collection of tools that support workflows for authentic data and identity management"
+  desc "Set of tools that support workflows for authentic data and identity management"
   homepage "https://github.com/trinsic-id/okapi/"
-  url "https://github.com/trinsic-id/okapi/releases/download/v1.1.0/okapi-1.1.0.tar.gz"
-  sha256 "3fcdfa1f513b934981812c917b2053dbb4acca955f98e94ee717855e3300523d"
+  url "https://github.com/trinsic-id/okapi/releases/download/v1.1.0/okapi-1.1.1.tar.gz"
+  sha256 "11f75277fd6ef7491a80f99c0cb10122dfe6a02bf2a06bc4a2f64b92454fd11c"
   license "Apache-2.0"
 
   bottle do
-    root_url "https://github.com/trinsic-id/homebrew-tap/releases/download/okapi-1.1.0"
-    rebuild 1
-    sha256 cellar: :any,                 catalina:     "177f26008c6cb770f5356f480dd2ed6f86cdf2a7a96b7ca9c5a3f41a9ed51d03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1ecda49ae26a5ae9ad1ee4f67f76ab3e459ebfc9f93e872a537ea20d84893c6c"
+    root_url "https://github.com/trinsic-id/homebrew-tap/releases/download/okapi-1.1.1"
   end
 
   depends_on "rust"
 
   def install
-    system "cargo", "build", "--release"
+    system "bash", "build.sh"
 
     if OS.linux?
       lib.install "target/release/libokapi.so"
