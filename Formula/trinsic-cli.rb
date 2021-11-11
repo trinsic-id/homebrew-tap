@@ -6,9 +6,9 @@ class TrinsicCli < Formula
   license "Apache-2.0"
 
   bottle do
-    root_url "https://github.com/trinsic-id/homebrew-tap/releases/download/trinsic-cli-1.0.0"
-    sha256 cellar: :any_skip_relocation, catalina:     "acc2222ce83e8684a0ae78a7187dc25016acba2a076c16b29679c4bc6f01b99c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d223086263bf62cfb1a1511fcb9a3124dd3ecbb8135c39336b95b4ae8e4dab52"
+    root_url "https://github.com/trinsic-id/homebrew-tap/releases/download/trinsic-cli-1.1.0"
+    sha256 cellar: :any_skip_relocation, catalina:     "7896c2ba9df29db840975efc513c0eed857ac9274f964e3945641b06936c9712"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4c231131baf20cd28918f05b805e36d935cf19997d29e4889cde25a44d2c1c52"
   end
 
   depends_on "rust" => :build
