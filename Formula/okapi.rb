@@ -6,9 +6,9 @@ class Okapi < Formula
   license "Apache-2.0"
 
   bottle do
-    root_url "https://github.com/trinsic-id/homebrew-tap/releases/download/okapi-1.1.1"
-    sha256 cellar: :any,                 catalina:     "3efc5d17356608c690c4d44b167949c59237f48239e6a69bc427d703b8c33c16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "8636da09b16040562dcb34c7277d35b3e136e119cfd19ce9d8133dc6539187a6"
+    root_url "https://github.com/trinsic-id/homebrew-tap/releases/download/okapi-1.2.0"
+    sha256 cellar: :any,                 catalina:     "e56756e31e07ce3556a1f969c14ad7857882053d886d35833b573cfcea34350e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d010b687c63ae5e5fe20a41bf8aa0b60beb8a61054763b2f644c8fdda5a1f419"
   end
 
   depends_on "rust"
