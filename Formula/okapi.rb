@@ -1,8 +1,8 @@
 class Okapi < Formula
   desc "Set of tools that support workflows for authentic data and identity management"
   homepage "https://github.com/trinsic-id/okapi/"
-  url "https://github.com/trinsic-id/okapi/releases/download/v1.1.0/okapi-1.1.1.tar.gz"
-  sha256 "11f75277fd6ef7491a80f99c0cb10122dfe6a02bf2a06bc4a2f64b92454fd11c"
+  url "https://github.com/trinsic-id/okapi/releases/download/v1.2.0/okapi-1.2.0.tar.gz"
+  sha256 "54494573cdbba598d046062ab38e05afb8169b66a0ea59f63e67507920e08191"
   license "Apache-2.0"
 
   bottle do
@@ -14,6 +14,7 @@ class Okapi < Formula
   depends_on "rust"
 
   def install
+    system "echo cargo build --release > build.sh"
     system "bash", "build.sh"
 
     if OS.linux?
@@ -21,6 +22,7 @@ class Okapi < Formula
     else
       lib.install "target/release/libokapi.dylib"
     end
+    lib.install "target/release/libokapi.a"
     include.install "include/okapi.h"
   end
 
