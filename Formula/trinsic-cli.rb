@@ -7,8 +7,8 @@ class TrinsicCli < Formula
 
   bottle do
     root_url "https://github.com/trinsic-id/homebrew-tap/releases/download/trinsic-cli-1.3.0"
-    sha256 cellar: :any_skip_relocation, big_sur:      "96cc535856cee4d0d2e4bfeb5cb489baa53e89b8290adf6a4145e883f8e22e78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "cfdba5acfd09a6deaf7579b13b97cdcb18c3b88895786cfa8b72c108d57032a9"
+    sha256 cellar: :any_skip_relocation, big_sur:      "b4de5ab9762ed54f91bb677fdf41194ba5c282e63c78407ae0e3ff6ffa4ece25"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3884164836b2353d8a201e6749d3fd3c31e1f9c2694f58cec986771b9ac70b04"
   end
 
   depends_on "rust" => :build
