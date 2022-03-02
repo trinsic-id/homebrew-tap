@@ -7,8 +7,8 @@ class Okapi < Formula
 
   bottle do
     root_url "https://github.com/trinsic-id/homebrew-tap/releases/download/okapi-1.4.0"
-    sha256 cellar: :any,                 catalina:     "e56756e31e07ce3556a1f969c14ad7857882053d886d35833b573cfcea34350e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d010b687c63ae5e5fe20a41bf8aa0b60beb8a61054763b2f644c8fdda5a1f419"
+    sha256 cellar: :any,                 big_sur:      "a1c46e3494b11a460413ee1d288a60c362b3823345d37d7000376dc2ce494b2d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "235635057bff68aaf7e2cdd63f1509dc1df11aa32855bc4f6f6add51e90194d0"
   end
 
   depends_on "rust"
