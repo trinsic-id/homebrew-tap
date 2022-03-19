@@ -18,9 +18,9 @@ class TrinsicCli < Formula
   end
 
   test do
-    config_toml = shell_output "#{bin}/trinsic config --show"
+    config = shell_output "#{bin}/trinsic config"
 
-    assert config_toml.downcase[".trinsic/config.toml"]
-    assert config_toml.downcase["[server]"]
+    assert config.downcase[".trinsic/config.toml"]
+    assert config.downcase["ok"]
   end
 end
