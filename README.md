@@ -5,7 +5,7 @@ Repository for maintaining custom Homebrew Taps
 ## Pushing new updates
 
 - Update the corresponding formula file under `Formula` by updating the `url` to point to the new bundle
-- Update the `sha256` file with the hash of that bundle
+- Update the `sha256` file with the hash of that bundle *in lower case*
 - Make a commit with a message: the name of the fomula and the version being updated, ex. `trinsic-cli 1.2.0`
 - Push the changes to a new branch
 - Create a PR with title equal to the commit message
