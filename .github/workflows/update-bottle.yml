@@ -1,0 +1,51 @@
+name: "CLI Bottle (update)"
+
+on:
+  workflow_dispatch:
+    inputs:
+      userVersion:
+        description: 'Package Version (leave empty for latest release)'
+        required: false
+        type: "string"
+        default: ""
+  workflow_call:
+    inputs:
+      callerVersion:
+        description: 'Package Version (leave empty for latest release)'
+        required: false
+        type: "string"
+        default: ""
+jobs:
+  update-bottle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: trinsic-id/set-version@v0.1
+        id: setversion
+        with:
+          githubToken: ${{ secrets.API_GITHUB_TOKEN }}
+          overrideVersion: ${{ inputs.userVersion || inputs.callerVersion }}
+      - run: ./.github/workflows/update-bottle.ps1 -Version ${{ steps.setversion.outputs.packageVersion }}
+        shell: pwsh
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        id: commit_changes
+        with:
+          author_name: Mewmba
+          author_email: mewmba@trinsic.id
+          message: 'Updated to latest `.tar.gz` package from SDK repo'
+          new_branch: 'mewmba-${{ github.ref }}-updated-package'
+          push: '--force --set-upstream origin mewmba-${{ github.ref }}-updated-package'
+
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        if: ${{ steps.commit_changes.outputs.committed == 'true' }}
+        with:
+          source_branch: "mewmba-${{ github.ref }}-updated-package"  # From previous step
+          destination_branch: "main"
+          pr_title: "Updated to latest `.tar.gz` bottle"
+          pr_body: ":rocket: Updated homebrew bottle"
+          pr_allow_empty: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+
