@@ -25,7 +25,7 @@ jobs:
         with:
           githubToken: ${{ secrets.API_GITHUB_TOKEN }}
           overrideVersion: ${{ inputs.userVersion || inputs.callerVersion }}
-      - run: ./.github/workflows/update-bottle.ps1 -Version ${{ steps.setversion.outputs.packageVersion }}
+      - run: ./.github/workflows/update-formula.ps1 -ReleaseVersion ${{ steps.setversion.outputs.releaseVersion }} -Version ${{ steps.setversion.outputs.packageVersion }}
         shell: pwsh
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
