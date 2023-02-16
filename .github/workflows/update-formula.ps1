@@ -1,6 +1,7 @@
-param([string]$Version = "v1.8.0")
+param([string]$ReleaseVersion = "1.9.0", [string]$Version = "v1.8.0")
 
 $Version = $Version.Replace("v","")
+$ReleaseVersion = $ReleaseVersion.Replace("v","")
 Write-Host "Updating bottle .tar.gz to $Version"
 
 # TODO - Refactor this if needed elsewhere?
