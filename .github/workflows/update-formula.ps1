@@ -1,7 +1,7 @@
-param([string]$ReleaseVersion = "1.9.0", [string]$Version = "v1.8.0")
+param([string]$ReleaseVersion = "1.8.0", [string]$Version = "1.8.1")
 
-$Version = $Version.Replace("v","")
 $ReleaseVersion = $ReleaseVersion.Replace("v","")
+$Version = $Version.Replace("v","")
 Write-Host "Updating bottle .tar.gz to $Version"
 
 # TODO - Refactor this if needed elsewhere?
@@ -9,7 +9,10 @@ Set-Location $PSScriptRoot/../../Formula
 $TargetFile = "trinsic-cli.rb"
 
 $ContainerInformation = (Get-Content -Path $TargetFile -Raw)
-$UpdatedContainerInfo = ([Regex]'(\d+\.\d+\.\d+)').Replace($ContainerInformation, $Version)
+# Update both container version and release version - the leading space prevents matching root_url
+$DownloadUrl = " url `"https://github.com/trinsic-id/sdk/releases/download/v$ReleaseVersion/trinsic-cli-$Version.tar.gz`""
+$UpdatedContainerInfo = ([Regex]"\surl\s`"(.*)`"").Replace($ContainerInformation, $DownloadUrl)
+Write-Host $UpdatedContainerInfo
 Set-Content $UpdatedContainerInfo -Path $TargetFile -NoNewline
 
 # Download relevant file
