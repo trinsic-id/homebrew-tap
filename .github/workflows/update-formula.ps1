@@ -12,7 +12,7 @@ $ContainerInformation = (Get-Content -Path $TargetFile -Raw)
 # Update both container version and release version - the leading space prevents matching root_url
 $DownloadUrl = " url `"https://github.com/trinsic-id/sdk/releases/download/v$ReleaseVersion/trinsic-cli-$Version.tar.gz`""
 $UpdatedContainerInfo = ([Regex]"\surl\s`"(.*)`"").Replace($ContainerInformation, $DownloadUrl)
-Write-Host $UpdatedContainerInfo
+#Write-Host $UpdatedContainerInfo
 Set-Content $UpdatedContainerInfo -Path $TargetFile -NoNewline
 
 # Download relevant file
