@@ -1,4 +1,4 @@
-param([string]$ReleaseVersion = "1.8.0", [string]$Version = "1.8.1")
+param([string]$ReleaseVersion = "1.9.0", [string]$Version = "1.9.0")
 
 $ReleaseVersion = $ReleaseVersion.Replace("v","")
 $Version = $Version.Replace("v","")
@@ -12,11 +12,11 @@ $ContainerInformation = (Get-Content -Path $TargetFile -Raw)
 # Update both container version and release version - the leading space prevents matching root_url
 $DownloadUrl = " url `"https://github.com/trinsic-id/sdk/releases/download/v$ReleaseVersion/trinsic-cli-$Version.tar.gz`""
 $UpdatedContainerInfo = ([Regex]"\surl\s`"(.*)`"").Replace($ContainerInformation, $DownloadUrl)
-Write-Host $UpdatedContainerInfo
+#Write-Host $UpdatedContainerInfo
 Set-Content $UpdatedContainerInfo -Path $TargetFile -NoNewline
 
 # Download relevant file
-$Match = Select-String "\surl\s`"(.*)`"$" -Path $TargetFile
+$Match = Select-String "\surl\s`"(.*)`"" -Path $TargetFile
 $MatchString = $Match.Matches.Groups[1].Value
 Write-Host "Downloading: $MatchString"
 
