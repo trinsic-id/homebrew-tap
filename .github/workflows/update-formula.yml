@@ -48,7 +48,7 @@ jobs:
         with:
           author_name: Mewmba
           author_email: mewmba@trinsic.id
-          message: 'Generated code from proto files on branch ${{ steps.new-branch-name.outputs.oldbranchname }}'
+          message: 'Update to ${{ steps.setversion.outputs.releaseVersion }}'
           new_branch: ${{ steps.new-branch-name.outputs.newbranchname }}
           push: '--force --set-upstream origin ${{ steps.new-branch-name.outputs.newbranchname  }}'
       - name: pull-request
@@ -57,7 +57,7 @@ jobs:
         with:
           source_branch: ${{ steps.new-branch-name.outputs.newbranchname }}
           destination_branch: ${{ steps.new-branch-name.outputs.oldbranchname }}
-          pr_title: "Generated Protos for ${{ steps.new-branch-name.outputs.oldbranchname }}"
+          pr_title: 'Update to ${{ steps.setversion.outputs.releaseVersion }}' # PR title must equal commit message
           pr_body: ":rocket: Generated protos"
           pr_allow_empty: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
