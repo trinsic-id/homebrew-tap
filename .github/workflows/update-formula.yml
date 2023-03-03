@@ -19,8 +19,10 @@ jobs:
   update-bottle:
     runs-on: ubuntu-latest
     steps:
+      # Because called actions run in caller repository, we have to be explicit here.
       - uses: actions/checkout@v3
         with:
+          repository: trinsic-id/homebrew-tap
           fetch-depth: 0
           ref: ${{ github.head_ref }}
       - name: Configure git credentials
@@ -33,8 +35,9 @@ jobs:
           githubToken: ${{ secrets.API_GITHUB_TOKEN }}
           overrideVersion: ${{ inputs.userVersion || inputs.callerVersion }}
           overrideRepository: trinsic-id/sdk
-      - run: ./.github/workflows/update-formula.ps1 -ReleaseVersion ${{ steps.setversion.outputs.releaseVersion }} -Version ${{ steps.setversion.outputs.packageVersion }}
+      - run: ./homebrew-tap/.github/workflows/update-formula.ps1 -ReleaseVersion ${{ steps.setversion.outputs.releaseVersion }} -Version ${{ steps.setversion.outputs.packageVersion }}
         shell: pwsh
+
       - name: Create new branch name
         id: new-branch-name
         run: |
