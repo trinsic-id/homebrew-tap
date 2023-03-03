@@ -55,10 +55,10 @@ jobs:
         uses: repo-sync/pull-request@v2
         if: ${{ steps.commit_changes.outputs.committed == 'true' }}
         with:
-          source_branch: "mewmba-${{ github.ref }}-updated-package"  # From previous step
-          destination_branch: "main"
-          pr_title: "Updated to latest `.tar.gz` bottle"
-          pr_body: ":rocket: Updated homebrew bottle"
+          source_branch: ${{ steps.new-branch-name.outputs.newbranchname }}
+          destination_branch: ${{ steps.new-branch-name.outputs.oldbranchname }}
+          pr_title: "Generated Protos for ${{ steps.new-branch-name.outputs.oldbranchname }}"
+          pr_body: ":rocket: Generated protos"
           pr_allow_empty: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
