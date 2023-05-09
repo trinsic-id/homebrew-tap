@@ -3,6 +3,11 @@ on:
   pull_request_target:
     types:
       - labeled
+      
+env:
+  # https://github.com/orgs/Homebrew/discussions/4401
+  HOMEBREW_NO_INSTALL_FROM_API: 1
+  
 jobs:
   pr-pull:
     if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
