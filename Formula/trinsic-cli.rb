@@ -4,6 +4,7 @@ class TrinsicCli < Formula
   url "https://github.com/trinsic-id/sdk/releases/download/v1.11.0/trinsic-cli-1.11.0.tar.gz"
   sha256 "37d67d3fbc4ca4f8caf551c37e65695dc4f331dc093e21b1d4d5ad3a9b46970b"
   license "Apache-2.0"
+  
   bottle do
     root_url "https://github.com/trinsic-id/homebrew-tap/releases/download/trinsic-cli-1.9.0"
     sha256 cellar: :any_skip_relocation, monterey:     "acce9f5f298f15f3439183dbd4f9447f883cdacbb001dfb5cda6030811c5357f"
