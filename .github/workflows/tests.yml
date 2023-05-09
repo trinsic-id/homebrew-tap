@@ -4,10 +4,11 @@ on:
     branches:
       - main
   pull_request:
-  workflow_dispatch:
   
 env:
+# https://github.com/orgs/Homebrew/discussions/4401
   HOMEBREW_NO_INSTALL_FROM_API: 1
+
   
 jobs:
   test-bot:
@@ -31,9 +32,6 @@ jobs:
       - name: Install Homebrew Bundler RubyGems
         if: steps.cache.outputs.cache-hit != 'true'
         run: brew install-bundler-gems
-        
-      - run: brew update
-      - run: brew install rust
 
       - run: brew test-bot --only-cleanup-before
 
