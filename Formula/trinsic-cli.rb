@@ -1,8 +1,8 @@
 class TrinsicCli < Formula
   desc "Command-line interface for Trinsic Ecosystems APIs"
   homepage "https://docs-v2.trinsic.id/"
-  url "https://github.com/trinsic-id/sdk/releases/download/v1.11.0/trinsic-cli-1.11.2.tar.gz"
-  sha256 "152920e36a85a0de2c6efdc9bb2a9483fe652cd0dbdb34811b43ed1aa75b0fa7"
+  url "https://github.com/trinsic-id/sdk/releases/download/v1.12.0/trinsic-cli-1.12.0.tar.gz"
+  sha256 "1786986b918a8dc0f36272ca3a7a87696c2de4f72c9063ad5a16a2d37bf4564b"
   license "Apache-2.0"
 
   bottle do
