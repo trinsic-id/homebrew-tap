@@ -51,7 +51,7 @@ jobs:
         with:
           author_name: Mewmba
           author_email: mewmba@trinsic.id
-          message: 'trinsic-cli ${{ steps.setversion.outputs.releaseVersion }}'
+          message: 'trinsic-cli ${{ steps.setversion.outputs.packageVersion }}'
           new_branch: ${{ steps.new-branch-name.outputs.newbranchname }}
           push: '--force --set-upstream origin ${{ steps.new-branch-name.outputs.newbranchname  }}'
       - name: pull-request
@@ -60,7 +60,7 @@ jobs:
         with:
           source_branch: ${{ steps.new-branch-name.outputs.newbranchname }}
           destination_branch: ${{ steps.new-branch-name.outputs.oldbranchname }}
-          pr_title: 'trinsic-cli ${{ steps.setversion.outputs.releaseVersion }}' # PR title must equal commit message
+          pr_title: 'trinsic-cli ${{ steps.setversion.outputs.packageVersion }}' # PR title must equal commit message
           pr_allow_empty: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
