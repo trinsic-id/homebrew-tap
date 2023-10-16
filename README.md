@@ -13,4 +13,4 @@ Repository for maintaining custom Homebrew Taps
 - Wait for CI actions to complete, do not merge the PR manually!
 - One completed, add label `pr-pull` to the PR. This will kick off actions that will close the PR and bottle the taps
 
-> Do not push changes directly to `main`.
+> Do not push changes directly to `main`!
