@@ -35,7 +35,7 @@ jobs:
           githubToken: ${{ secrets.API_GITHUB_TOKEN }}
           overrideVersion: ${{ inputs.userVersion || inputs.callerVersion }}
           overrideRepository: trinsic-id/sdk
-      - run: ./homebrew-tap/.github/workflows/update-formula.ps1 -ReleaseVersion ${{ steps.setversion.outputs.releaseVersion }} -Version ${{ steps.setversion.outputs.packageVersion }}
+      - run: .github/workflows/update-formula.ps1 -ReleaseVersion ${{ steps.setversion.outputs.releaseVersion }} -Version ${{ steps.setversion.outputs.packageVersion }}
         shell: pwsh
 
       - name: Create new branch name
