@@ -5,6 +5,7 @@ on:
       - main
   pull_request:
   workflow_dispatch:
+  label:
 
 env:
 # https://github.com/orgs/Homebrew/discussions/4401
@@ -12,6 +13,7 @@ env:
   
 jobs:
   test-bot:
+    if: contains(github.event.pull_request.labels.*.name, 'pr-test')
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
