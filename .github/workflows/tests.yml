@@ -5,7 +5,9 @@ on:
       - main
   pull_request:
   workflow_dispatch:
-  label:
+  pull_request_target:
+    types:
+      - labeled
 
 env:
 # https://github.com/orgs/Homebrew/discussions/4401
